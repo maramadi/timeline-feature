@@ -31,21 +31,14 @@ Class TimelineFeature extends MrmFeature {
 
 	public function run()
 	{
-		add_action( 'wp_head', array($this, 'printHeadScripts') );
 		add_action( 'wp_print_footer_scripts', array($this, 'printFooterScripts') );
-	}
-
-	public function printHeadScripts()
-	{
-		$timelineClass = $this->getSetting('item-class')?:'timeline-item';
-		echo '<script>';
-		echo 'var timelineFeature_class="'. $timelineClass .'"';
-		echo '</script>';
 	}
 
 	public function printFooterScripts()
 	{
+		$timelineClass = $this->getSetting('item_class');
 		echo '<script>';
+		echo 'var mrm_timelineFeature_class="'. $timelineClass .'";';
 		echo file_get_contents(__DIR__ . '/js/timeline.js');
 		echo '</script>';
 	}
