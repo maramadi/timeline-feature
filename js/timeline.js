@@ -1,5 +1,8 @@
 jQuery(document).ready(function(){
-
+  if( typeof mrm_timelineFeature_class === 'undefined'){
+    console.log('no timeline class');
+    return;
+  }
   var timelineRows = document.getElementsByClassName(mrm_timelineFeature_class);
   var timelineRowsCount = timelineRows.length;
 
@@ -49,8 +52,9 @@ jQuery(document).ready(function(){
       if( j > 0 ){
         var previousElement = timelineRows[j-1];
       }
-
-      if( position.top - center < 30 )  {
+      // Above the center line
+      if( position.top - center < -50 )  {
+        // If not already glowing
         if( ! hasClass(element, 'glowing') ){
           element.className += ' glowing';
         }
@@ -62,6 +66,7 @@ jQuery(document).ready(function(){
             }
           }
         }
+      // Below the center line
       }else{
         if( hasClass(element, 'glowing') ){
           removeClass(element, 'glowing');
