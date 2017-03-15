@@ -53,7 +53,7 @@ jQuery(document).ready(function(){
         var previousElement = timelineRows[j-1];
       }
       // Above the center line
-      if( position.top - center < -50 )  {
+      if( position.top - center < -20 )  {
         // If not already glowing
         if( ! hasClass(element, 'glowing') ){
           element.className += ' glowing';
