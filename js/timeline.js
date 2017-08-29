@@ -34,7 +34,7 @@ jQuery(document).ready(function(){
     var parent = timeline_item.parentElement;
 
     for (var j = 0; j<5; j++) {
-      if( parent.matches('.panel-grid') ){
+      if( parent.className.indexOf('panel-grid') > -1 ) {
         parent.className += " mrm-timeline-feature__wrapper";
         break;
       }
